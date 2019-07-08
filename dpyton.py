@@ -18,7 +18,8 @@ def graph_laplacian(n):
     print("size: " + str(n))
 #    print(grap_lap)
     #print("determinant: " + str(np.linalg.det(grap_lap)))
-    #print(np.linalg.eigvals(grap_lap))
+    print(np.linalg.eigvals(grap_lap))
+    print("polynomial " + str(np.poly(grap_lap)))
     print("product " + str(product(grap_lap)))
     return grap_lap
 
@@ -31,6 +32,6 @@ def product(matrix):
     return product / len(eigenvalues)
 
 
-for i in range(1, 20):
+for i in range(7, 8):
     graph_laplacian(i)
 
