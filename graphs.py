@@ -27,15 +27,15 @@ def product(matrix):
             product *= e
     return product / len(eigenvalues)
 
-arrayofstuff = np.array([[0]*11]*6)
-x = product(graph_laplacian(1, 3))
-print(x)
-arrayofstuff[1, 3] = product(graph_laplacian(1, 3))
-print(arrayofstuff)
-arrayofstuff[1, 3] = x
-print(arrayofstuff)
-print(product(graph_laplacian(1,3)))
-for a in range(1,11):
+arrayofstuff = np.array([[0]*21]*6)
+#x = product(graph_laplacian(1, 3))
+#print(x)
+#arrayofstuff[1, 3] = product(graph_laplacian(1, 3))
+#print(arrayofstuff)
+#arrayofstuff[1, 3] = x
+#print(arrayofstuff)
+#print(product(graph_laplacian(1,3)))
+for a in range(1,21):
     for b in range(1,6):
         if (a > 2*b):
             arrayofstuff[b,a] = int(product(graph_laplacian(b,a)) + 0.5)
