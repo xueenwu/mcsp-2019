@@ -53,4 +53,16 @@ def product(matrix):
             product *= e
     return product / len(eigenvalues)
 
-print(graph_laplacian_disconnected(3,8))
+def comparison(k):
+    ratiolist = []
+    for n in range(2k+1,25):
+        comp = float(product(graph_laplacian_connected(k,n)))/float(n*product(graph_laplacian_disconnected(k,n))) 
+        ratiolist.append(comp)
+    return ratiolist
+
+for k in range(1,9):
+    print(comparison(k))
+    
+    
+
+
