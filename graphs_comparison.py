@@ -55,12 +55,14 @@ def product(matrix):
 
 def comparison(k):
     ratiolist = []
-    for n in range(2k+1,25):
-        comp = float(product(graph_laplacian_connected(k,n)))/float(n*product(graph_laplacian_disconnected(k,n))) 
-        ratiolist.append(comp)
+    for n in range(3*k,8*k+5):
+        connect = float(product(graph_laplacian_connected(k,n)))
+        disconnect = float(n*float(product(graph_laplacian_disconnected(k,n)))) 
+        ratiolist.append(connect)
+        ratiolist.append(disconnect)
     return ratiolist
 
-for k in range(1,9):
+for k in range(1,7):
     print(comparison(k))
     
     
