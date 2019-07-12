@@ -58,12 +58,16 @@ def comparison(k):
     for n in range(3*k,8*k+5):
         connect = float(product(graph_laplacian_connected(k,n)))
         disconnect = float(n*float(product(graph_laplacian_disconnected(k,n)))) 
-        ratiolist.append(connect)
-        ratiolist.append(disconnect)
+        ratiolist.append(connect/disconnect)
     return ratiolist
 
-for k in range(1,7):
+for k in range(1,12):
     print(comparison(k))
+
+for k in range(2,31):
+    now = comparison(k)[-1]
+    before = comparison(k-1)[-1]
+    print(now/before)
     
     
 
