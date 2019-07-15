@@ -1,4 +1,5 @@
 import numpy as np
+from collections import Counter
  
 
 def graph_laplacian_connected(k,n):
@@ -53,7 +54,7 @@ def product(matrix):
             product *= e
     return product / len(eigenvalues)
 
-def comparison(k):
+def ratio(k):
     ratiolist = []
     for n in range(3*k,8*k+5):
         connect = float(product(graph_laplacian_connected(k,n)))
@@ -61,13 +62,19 @@ def comparison(k):
         ratiolist.append(connect/disconnect)
     return ratiolist
 
-for k in range(1,12):
-    print(comparison(k))
+def eig(k):
+    for n in range(2*k + 1,8*k+5):
+        print(k)
+        print(n)
+	connectedEig = np.linalg.eigvals(graph_laplacian_connected(k,n))
+        print(connectedEig)
+	print(Counter(connectedEig))
+        print(np.linalg.eigvals(graph_laplacian_disconnected(k,n)))
 
-for k in range(2,31):
-    now = comparison(k)[-1]
-    before = comparison(k-1)[-1]
-    print(now/before)
+for k in range(1,4):
+    eig(k)
+
+
     
     
 
