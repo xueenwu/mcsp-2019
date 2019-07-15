@@ -67,9 +67,19 @@ def eig(k):
         print(k)
         print(n)
 	connectedEig = np.linalg.eigvals(graph_laplacian_connected(k,n))
-        print(connectedEig)
-	print(Counter(connectedEig))
-        print(np.linalg.eigvals(graph_laplacian_disconnected(k,n)))
+      #  print(connectedEig)
+
+	cce = Counter(connectedEig)
+        print(cce)
+        disconnEig = np.linalg.eigvals(graph_laplacian_disconnected(k,n))
+        dce = Counter(disconnEig)
+        print(dce)
+        for eig in cce:
+            if cce[eig] >= 2:
+                print("eigenwhatever" + str(cce[eig]))
+                print(eig)
+                if eig in dce:
+                    print("yay")
 
 for k in range(1,4):
     eig(k)
