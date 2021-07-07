@@ -53,20 +53,34 @@ def product(matrix):
             product *= e
     return product / len(eigenvalues)
 
-def comparison(k):
+def compariso(k):
     ratiolist = []
-    for n in range(3*k,8*k+5):
+    for n in range(3*k,10 * k + 5):
         connect = float(product(graph_laplacian_connected(k,n)))
         disconnect = float(n*float(product(graph_laplacian_disconnected(k,n)))) 
         ratiolist.append(connect/disconnect)
     return ratiolist
 
+def comparison(k):
+    treelist = []
+    for n in range(3 * k, 10 * k + 5):
+        connect = float(product(graph_laplacian_connected(k, n)))
+        treelist.append(connect)
+    return treelist
+'''
+for i in range(9, 20):
+    print(product(graph_laplacian_disconnected(3, i)))
+
+'''
+'''
 for k in range(1,12):
     print(comparison(k))
 
-for k in range(2,31):
-    now = comparison(k)[-1]
-    before = comparison(k-1)[-1]
+'''
+
+for k in range(1,31):
+    now = comparison(k)[-1] / (10 * k + 4)
+    before = comparison(k)[-2] / (10 * k + 3)
     print(now/before)
     
     
